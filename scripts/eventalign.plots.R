@@ -208,7 +208,6 @@ ggplot(dRNA, aes(x=event_level_mean, colour=isoform)) +
 dRNA = read_tsv("/dilithium/Data/Nanopore/rna/isoforms/dRNA.EEF1A1.mq5.GGACU.evalign.txt") %>%
     inner_join(readmatch, by = "read_name") %>%
     filter(model_kmer != "NNNNN") %>%
-    filter(reference_kmer == "AGUCC") %>%
     filter(grepl("ENST", isoform)) %>%
     unite(coordinates, contig, position, sep = ":") %>%
     filter(coordinates == "chr6:73518769") %>%
